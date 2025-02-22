@@ -96,7 +96,10 @@ def lalala(message):
                 bot.reply_to(message, 'Произошла ошибка, попробуй удалить спец. символы и смайлики')
                 return
 
-            file_data['number_of_questions'] += 1
+            try:
+                file_data['number_of_questions'] += 1
+            except:
+                file_data['number_of_questions'] = 1
 
             file_data[str(file_data['number_of_questions'])] = {
                 'date': str(dt.datetime.now().date()),
